@@ -1,0 +1,20 @@
+<a class="event-entry" ui-sref="app.event-entry({eventId: event.node.nid})">
+  <div class="card">
+    <div class="item item-avatar">
+      <img src="{{event.node.iconHappening.src}}">
+      <h2>{{event.node.artistName}}</h2>
+      <h5>at {{event.node.placeName}}</h5>
+      <h3 class="text-right">{{event.node.starts}} to {{event.node.ends}} <i class="icon ion-clock"></i></h3>
+    </div>
+    <!--
+    <div class="item item-body" ng-hide="whatever">
+      {{event.node.artistSummary}}
+      <div class="row no-padding">
+        <div ng-repeat="pic in event.node.pictures" class="no-padding">
+          <img src="{{pic.src}}" class="col col-100 ss-artist-images">
+        </div>
+      </div>
+    </div>
+    -->
+  </div>
+</a>

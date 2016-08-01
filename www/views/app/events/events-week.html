@@ -1,0 +1,80 @@
+<ion-view class="events-today-view">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>This Week</span>
+  </ion-nav-title>
+  <ion-content has-bouncing="true">
+
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <!-- FOR NEXT VERSION
+    <div class="button-bar padding">
+      <button class="button button-assertive">A</button>
+      <button class="button button-outline">A</button>
+      <button class="button button-outline">A</button>
+      <button class="button button-outline">A</button>
+      <button class="button button-outline">A</button>
+      <button class="button button-outline">A</button>
+      <button class="button button-outline">A</button>
+    </div>
+    -->
+
+    <div class="list">
+      <div class="item item-divider">
+        Today
+      </div>
+      <div ng-repeat="event in eventsDay1">
+        <div ng-include src="'views/app/events/event-card.html'"></div>
+      </div>
+
+      <div class="item item-divider">
+        Tomorrow
+      </div>
+      <div ng-repeat="event in eventsDay2">
+        <div ng-include src="'views/app/events/event-card.html'"></div>
+      </div>
+
+      <div class="item item-divider">
+        {{titleDay3}}
+      </div>
+      <div ng-repeat="event in eventsDay3">
+        <div ng-include src="'views/app/events/event-card.html'"></div>
+      </div>
+
+      <div class="item item-divider">
+        {{titleDay4}}
+      </div>
+      <div ng-repeat="event in eventsDay4">
+        <div ng-include src="'views/app/events/event-card.html'"></div>
+      </div>
+
+      <div class="item item-divider">
+        {{titleDay5}}
+      </div>
+      <div ng-repeat="event in eventsDay5">
+        <div ng-include src="'views/app/events/event-card.html'"></div>
+      </div>
+
+      <div class="item item-divider">
+        {{titleDay6}}
+      </div>
+      <div ng-repeat="event in eventsDay6">
+        <div ng-include src="'views/app/events/event-card.html'"></div>
+      </div>
+
+      <div class="item item-divider">
+        {{titleDay7}}
+      </div>
+      <div ng-repeat="event in eventsDay7">
+        <div ng-include src="'views/app/events/event-card.html'"></div>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

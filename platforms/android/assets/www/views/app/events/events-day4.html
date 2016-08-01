@@ -1,0 +1,20 @@
+<ion-view class="events-today-view">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>{{titleDay4}}</span>
+  </ion-nav-title>
+  <ion-content has-bouncing="true">
+
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <div ng-repeat="event in eventsDay4">
+      <div ng-include src="'views/app/events/event-card.html'"></div>
+    </div>
+
+  </ion-content>
+</ion-view>

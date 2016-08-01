@@ -1,0 +1,21 @@
+{
+    "CFNetwork.framework": 1,
+    "AdSupport.framework": 1,
+    "AudioToolbox.framework": 2,
+    "AVFoundation.framework": 1,
+    "CoreBluetooth.framework": 1,
+    "CoreLocation.framework": 2,
+    "CoreTelephony.framework": 1,
+    "EventKit.framework": 1,
+    "EventKitUI.framework": 1,
+    "Foundation.framework": 1,
+    "MediaPlayer.framework": 1,
+    "MessageUI.framework": 2,
+    "QuartzCore.framework": 1,
+    "SafariServices.framework": 1,
+    "StoreKit.framework": 2,
+    "SystemConfiguration.framework": 1,
+    "UIKit.framework": 1,
+    "iAd.framework": 1,
+    "Social.framework": 1
+}
