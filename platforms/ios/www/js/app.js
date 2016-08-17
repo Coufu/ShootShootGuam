@@ -137,6 +137,7 @@ angular.module('your_app_name', [
   })
 
   .state('app.event-entry', {
+    cache: false,
     url: "/events/:eventId",
     views: {
       'menuContent': {
