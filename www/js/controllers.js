@@ -15,7 +15,7 @@ angular.module('your_app_name.controllers', [])
 
 // EVENTS
 .controller('EventsCtrl', function($scope, $http, BASE_URL, SSDaysService) {
-	$scope.evetsLoaded = false;
+	$scope.eventsLoaded = false;
 	$scope.eventsDay1 = [];
 	$scope.eventsDay2 = [];
 	$scope.eventsDay3 = [];

@@ -12,12 +12,16 @@
       </div>
     </div>
 
+    <div ng-if="!loaded" class="ion-spinner">
+      <ion-spinner></ion-spinner>
+    </div>
+
     <div ng-if="loaded">
 
       <div ng-if="multipleArtists == false">
         <div class="artist-summary card">
           <div class="item item-divider">
-            About {{event.node.title}}
+            {{event.node.title}}
           </div>
           <div class="item item-text-wrap">
             <p>{{event.node.artistSummary}}</p>
@@ -32,7 +36,7 @@
               {{data.node.title}}
             </div>
             <div class="item item-text-wrap">
-              {{data.node.summary}}
+              <p>{{data.node.summary}}</p>
             </div>
           </div>
         </div>
@@ -40,10 +44,10 @@
 
       <div class="card">
         <div class="item item-divider">
-          About {{event.node.placeName}}
+          {{event.node.placeName}}
         </div>
         <div class="item item-text-wrap">
-          {{event.node.placeSummary}}
+          <p>{{event.node.placeSummary}}</p>
         </div>
       </div>
 

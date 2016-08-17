@@ -23,6 +23,10 @@
       <button class="button button-outline">A</button>
     </div>
     -->
+    <div ng-if="!eventsLoaded" class="ion-spinner">
+      <ion-spinner></ion-spinner>
+    </div>
+
 
     <div class="list">
       <div ng-repeat="event in eventsDay1">

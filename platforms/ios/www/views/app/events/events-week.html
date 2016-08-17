@@ -28,6 +28,11 @@
       <div class="item item-divider">
         Today
       </div>
+
+      <div ng-if="!eventsDay1" class="ion-spinner">
+        <ion-spinner></ion-spinner>
+      </div>
+
       <div ng-repeat="event in eventsDay1">
         <div ng-include src="'views/app/events/event-card.html'"></div>
       </div>

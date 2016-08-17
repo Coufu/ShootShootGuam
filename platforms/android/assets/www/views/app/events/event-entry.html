@@ -3,7 +3,55 @@
     <span>View Event</span>
   </ion-nav-title>
   <ion-content has-bouncing="true">
-  	asdf
+
+	  <div ng-include src="'views/app/events/event-card.html'"></div>
+
+    <div class="artist-pics">
+      <div class="row row-no-padding">
+        <div class="col col-33" ng-repeat="pic in event.node.pictures"><img src="{{pic.src}}" width="100%" /></div>
+      </div>
+    </div>
+
+    <div ng-if="!loaded" class="ion-spinner">
+      <ion-spinner></ion-spinner>
+    </div>
+
+    <div ng-if="loaded">
+
+      <div ng-if="multipleArtists == false">
+        <div class="artist-summary card">
+          <div class="item item-divider">
+            {{event.node.title}}
+          </div>
+          <div class="item item-text-wrap">
+            <p>{{event.node.artistSummary}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="multipleArtists">
+        <div ng-repeat="data in artistsData">
+          <div class="card">
+            <div class="item item-divider">
+              {{data.node.title}}
+            </div>
+            <div class="item item-text-wrap">
+              <p>{{data.node.summary}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item item-divider">
+          {{event.node.placeName}}
+        </div>
+        <div class="item item-text-wrap">
+          <p>{{event.node.placeSummary}}</p>
+        </div>
+      </div>
+
+    </div>
 
   </ion-content>
 </ion-view>
