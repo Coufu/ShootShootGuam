@@ -45,10 +45,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
                             "count": 1
                         },
@@ -95,6 +91,10 @@
                         {
                             "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -121,9 +121,6 @@
             "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
         },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
-        },
-        "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
         },
         "cordova-plugin-device": {
@@ -160,6 +157,9 @@
             "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
         },
         "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
+        },
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
         }
     },
@@ -219,22 +219,6 @@
             "id": "cordova-plugin-apprate.locales",
             "pluginId": "cordova-plugin-apprate",
             "runs": true
-        },
-        {
-            "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
-            "id": "cordova-plugin-console.console",
-            "pluginId": "cordova-plugin-console",
-            "clobbers": [
-                "console"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-console/www/logger.js",
-            "id": "cordova-plugin-console.logger",
-            "pluginId": "cordova-plugin-console",
-            "clobbers": [
-                "cordova.logger"
-            ]
         },
         {
             "file": "plugins/cordova-plugin-device/www/device.js",
@@ -513,6 +497,22 @@
                 "cordova.plugins.Keyboard"
             ],
             "runs": true
+        },
+        {
+            "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
+            "id": "cordova-plugin-console.console",
+            "pluginId": "cordova-plugin-console",
+            "clobbers": [
+                "console"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-console/www/logger.js",
+            "id": "cordova-plugin-console.logger",
+            "pluginId": "cordova-plugin-console",
+            "clobbers": [
+                "cordova.logger"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -523,7 +523,6 @@
         "cordova-plugin-inappbrowser": "1.4.0",
         "cordova-plugin-apprate": "1.1.7",
         "cordova-plugin-compat": "1.0.0",
-        "cordova-plugin-console": "1.0.3",
         "cordova-plugin-device": "1.1.2",
         "cordova-plugin-file": "4.2.0",
         "cordova-plugin-file-transfer": "1.5.1",
@@ -535,6 +534,7 @@
         "cordova-plugin-transport-security": "0.1.2",
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-x-socialsharing": "5.1.1",
-        "ionic-plugin-keyboard": "1.0.9"
+        "ionic-plugin-keyboard": "1.0.9",
+        "cordova-plugin-console": "1.0.3"
     }
 }

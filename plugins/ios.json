@@ -13,9 +13,6 @@
         "cordova-plugin-apprate": {
             "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
         },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
-        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
         },
@@ -53,6 +50,9 @@
             "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
         },
         "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
+        },
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.glabs.ssg3"
         }
     },
