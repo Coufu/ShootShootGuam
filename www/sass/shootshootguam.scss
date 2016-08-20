@@ -1,0 +1,15 @@
+a.event-entry {
+	h3.event-time {
+    float: right;
+    text-align: right;
+  }
+}
+
+ion-view.events-today-view {
+  ion-content {
+    div.ion-spinner {
+      text-align: center;
+      margin-top: 5em;
+    }
+  }
+}

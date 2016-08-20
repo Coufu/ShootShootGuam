@@ -12,6 +12,11 @@ angular.module('your_app_name', [
   'ionic',
   //'ionic-cache-src', IT DOESNT FUCKING WORK WHY LOL
   'angularMoment',
+
+  // TODO - STICKY HEADERS FOR "WEEK" EVENT PAGE
+  //'angular.filter',
+  //'angular.ionic-sticky-list-dividers',
+
   'your_app_name.controllers',
   'your_app_name.directives',
   'your_app_name.filters',
@@ -75,40 +80,13 @@ angular.module('your_app_name', [
 
 })
 
+.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.backButton.previousTitleText(false).text(' '); 
+})
+
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
-
-  //INTRO
-  .state('auth', {
-    url: "/auth",
-    templateUrl: "views/auth/auth.html",
-    abstract: true,
-    controller: 'AuthCtrl'
-  })
-
-  .state('auth.walkthrough', {
-    url: '/walkthrough',
-    templateUrl: "views/auth/walkthrough.html"
-  })
-
-  .state('auth.login', {
-    url: '/login',
-    templateUrl: "views/auth/login.html",
-    controller: 'LoginCtrl'
-  })
-
-  .state('auth.signup', {
-    url: '/signup',
-    templateUrl: "views/auth/signup.html",
-    controller: 'SignupCtrl'
-  })
-
-  .state('auth.forgot-password', {
-    url: "/forgot-password",
-    templateUrl: "views/auth/forgot-password.html",
-    controller: 'ForgotPasswordCtrl'
-  })
 
   .state('app', {
     url: "/app",
@@ -138,234 +116,33 @@ angular.module('your_app_name', [
     }
   })
 
-  .state('app.events-tomorrow', {
-    url: "/events-tomorrow",
+  .state('app.events-week', {
+    url: "/events-week",
     views: {
       'menuContent': {
-        templateUrl: "views/app/events/events-tomorrow.html",
+        templateUrl: "views/app/events/events-week.html",
         controller: 'EventsCtrl'
       }
     }
   })
 
-  .state('app.events-day3', {
-    url: "/events-day3",
+  .state('app.events-featured', {
+    url: "/events-featured",
     views: {
       'menuContent': {
-        templateUrl: "views/app/events/events-day3.html",
-        controller: 'EventsCtrl'
-      }
-    }
-  })
-  
-  .state('app.events-day4', {
-    url: "/events-day4",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/events/events-day4.html",
-        controller: 'EventsCtrl'
-      }
-    }
-  })
-
-  .state('app.events-day5', {
-    url: "/events-day5",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/events/events-day5.html",
-        controller: 'EventsCtrl'
-      }
-    }
-  })
-
-  .state('app.events-day6', {
-    url: "/events-day6",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/events/events-day6.html",
-        controller: 'EventsCtrl'
-      }
-    }
-  })
-
-  .state('app.events-day7', {
-    url: "/events-day7",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/events/events-day7.html",
+        templateUrl: "views/app/events/events-featured.html",
         controller: 'EventsCtrl'
       }
     }
   })
 
   .state('app.event-entry', {
+    cache: false,
     url: "/events/:eventId",
     views: {
       'menuContent': {
         templateUrl: "views/app/events/event-entry.html",
         controller: 'EventEntryCtrl'
-      }
-    }
-  })
-
-
-  //MISCELLANEOUS
-  .state('app.miscellaneous', {
-    url: "/miscellaneous",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/miscellaneous/miscellaneous.html"
-      }
-    }
-  })
-
-  .state('app.maps', {
-    url: "/miscellaneous/maps",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/miscellaneous/maps.html",
-        controller: 'MapsCtrl'
-      }
-    }
-  })
-
-  .state('app.image-picker', {
-    url: "/miscellaneous/image-picker",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/miscellaneous/image-picker.html",
-        controller: 'ImagePickerCtrl'
-      }
-    }
-  })
-
-  //LAYOUTS
-  .state('app.layouts', {
-    url: "/layouts",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/layouts/layouts.html"
-      }
-    }
-  })
-
-  .state('app.tinder-cards', {
-    url: "/layouts/tinder-cards",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/layouts/tinder-cards.html",
-        controller: 'TinderCardsCtrl'
-      }
-    }
-  })
-
-  .state('app.slider', {
-    url: "/layouts/slider",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/layouts/slider.html"
-      }
-    }
-  })
-
-  //FEEDS
-  .state('app.feeds-categories', {
-    url: "/feeds-categories",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/feeds/feeds-categories.html",
-        controller: 'FeedsCategoriesCtrl'
-      }
-    }
-  })
-
-  .state('app.category-feeds', {
-    url: "/category-feeds/:categoryId",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/feeds/category-feeds.html",
-        controller: 'CategoryFeedsCtrl'
-      }
-    }
-  })
-
-  .state('app.feed-entries', {
-    url: "/feed-entries/:categoryId/:sourceId",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/feeds/feed-entries.html",
-        controller: 'FeedEntriesCtrl'
-      }
-    }
-  })
-
-  //WORDPRESS
-  .state('app.wordpress', {
-    url: "/wordpress",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/wordpress/wordpress.html",
-        controller: 'WordpressCtrl'
-      }
-    }
-  })
-
-  .state('app.post', {
-    url: "/wordpress/:postId",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/wordpress/wordpress_post.html",
-        controller: 'WordpressPostCtrl'
-      }
-    },
-    resolve: {
-      post_data: function(PostService, $ionicLoading, $stateParams) {
-        $ionicLoading.show({
-      		template: 'Loading post ...'
-      	});
-
-        var postId = $stateParams.postId;
-        return PostService.getPost(postId);
-      }
-    }
-  })
-
-  //OTHERS
-  .state('app.settings', {
-    url: "/settings",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/settings.html",
-        controller: 'SettingsCtrl'
-      }
-    }
-  })
-
-  .state('app.forms', {
-    url: "/forms",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/forms.html"
-      }
-    }
-  })
-
-  .state('app.profile', {
-    url: "/profile",
-    views: {
-      'menuContent': {
-        templateUrl: "views/app/profile.html",
-        controller: "ProfileCtrl"
-      }
-    }
-  })
-
-  .state('app.bookmarks', {
-    url: "/bookmarks",
-    views: {
-      'menuContent': { 
-        templateUrl: "views/app/bookmarks.html",
-        controller: 'BookMarksCtrl'
       }
     }
   })

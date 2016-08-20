@@ -12,23 +12,45 @@
       </div>
     </div>
 
-
-    <div class="artist-summary card">
-      <div class="item item-divider">
-        About {{event.node.title}}
-      </div>
-      <div class="item item-text-wrap">
-        <p>{{event.node.artistSummary}}</p>
-      </div>
+    <div ng-if="!loaded" class="ion-spinner">
+      <ion-spinner></ion-spinner>
     </div>
 
-    <div class="card">
-      <div class="item item-divider">
-        About {{event.node.placeName}}
+    <div ng-if="loaded">
+
+      <div ng-if="multipleArtists == false">
+        <div class="artist-summary card">
+          <div class="item item-divider">
+            {{event.node.title}}
+          </div>
+          <div class="item item-text-wrap">
+            <p>{{event.node.artistSummary}}</p>
+          </div>
+        </div>
       </div>
-      <div class="item item-text-wrap">
-        {{event.node.placeSummary}}
+
+      <div ng-if="multipleArtists">
+        <div ng-repeat="data in artistsData">
+          <div class="card">
+            <div class="item item-divider">
+              {{data.node.title}}
+            </div>
+            <div class="item item-text-wrap">
+              <p>{{data.node.summary}}</p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="card">
+        <div class="item item-divider">
+          {{event.node.placeName}}
+        </div>
+        <div class="item item-text-wrap">
+          <p>{{event.node.placeSummary}}</p>
+        </div>
+      </div>
+
     </div>
 
   </ion-content>

@@ -23,9 +23,15 @@
       <button class="button button-outline">A</button>
     </div>
     -->
+    <div ng-if="!eventsLoaded" class="ion-spinner">
+      <ion-spinner></ion-spinner>
+    </div>
 
-    <div ng-repeat="event in eventsDay1">
-      <div ng-include src="'views/app/events/event-card.html'"></div>
+
+    <div class="list">
+      <div ng-repeat="event in eventsDay1">
+        <div ng-include src="'views/app/events/event-card.html'"></div>
+      </div>
     </div>
 
   </ion-content>

@@ -15,7 +15,7 @@ angular.module('your_app_name.controllers', [])
 
 // EVENTS
 .controller('EventsCtrl', function($scope, $http, BASE_URL, SSDaysService) {
-	$scope.evetsLoaded = false;
+	$scope.eventsLoaded = false;
 	$scope.eventsDay1 = [];
 	$scope.eventsDay2 = [];
 	$scope.eventsDay3 = [];
@@ -79,6 +79,12 @@ angular.module('your_app_name.controllers', [])
 .controller('EventEntryCtrl', function($scope, $http, $stateParams, BASE_URL) {
 	$scope.eventId = $stateParams.eventId;
 	$scope.event = [];
+	$scope.multipleArtists = false;
+	$scope.loaded = false;
+
+	// Used for events witih multiple artists
+	$scope.artists = []; 
+	$scope.artistsData = [];
 
 	console.log($scope.eventId);
 
@@ -86,7 +92,34 @@ angular.module('your_app_name.controllers', [])
 		.success(function(response){
 			$scope.event = response.nodes[0];
 			console.log($scope.event);
+
+			// Check if there's multiple artists (Drupal is set to separate them with ,,,,,)
+			if($scope.event.node.artists.includes(',,,,,')) {
+				$scope.multipleArtists = true;
+
+				$scope.artists = $scope.event.node.artists.split(',,,,,');
+				console.log($scope.artists);
+
+				var artistContextString = '';
+				for($i=0;$i<$scope.artists.length;$i++){
+					// add a comma after the first one
+					if($i>0){
+						artistContextString += ',';
+					}
+					artistContextString += $scope.artists[$i];
+				}
+
+				$http.get(BASE_URL + 'api/artist-by-name.json/' + artistContextString)
+					.success(function(response) {
+						$scope.artistsData = response.nodes;
+            console.log($scope.artistsData);
+					});
+			}
+
+			$scope.loaded = true;
 		});
+
+
 })
 
 .controller('ProfileCtrl', function($scope) {
